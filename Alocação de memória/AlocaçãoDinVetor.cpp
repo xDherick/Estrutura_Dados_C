@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include<locale.h>
+
+main()
+{
+ setlocale(LC_ALL,"Portuguese");
+    int *vetor;
+    int n, i;
+
+    // Solicita o tamanho do vetor
+    printf("Digite o número de elementos do vetor: ");
+    scanf("%d", &n);
+
+    // Aloca memória para n inteiros
+    vetor = (int *)malloc(n * sizeof(int));
+
+    // Verifica se a alocação foi bem-sucedida
+    if (vetor == NULL) {
+        printf("Erro na alocação de memória!\n");
+        return 1;
+    }
+
+    // Preenchendo o vetor
+    printf("Digite %d números:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &vetor[i]);
+    }
+
+    // Exibindo os valores armazenados
+    printf("Elementos do vetor:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", vetor[i]);
+    }
+    printf("\n");
+
+    // Liberando a memória alocada
+    free(vetor);
+
+    return 0;
+}
+
